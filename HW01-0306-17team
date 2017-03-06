@@ -1,0 +1,58 @@
+
+const byte startPin = 1;
+const byte endPin = 8;
+
+void setup() 
+{
+
+// 將每個 Pin 設定成輸出
+	for (byte i = startPin; i<= endPin; i++) 
+	{
+		pinMode(i, OUTPUT);
+	}
+}
+void loop()
+{
+	byte i;
+	byte lightPin = startPin;
+	// 所有 LED OFF
+	for (i=startPin; i<= endPin; i++) {
+		digitalWrite(i,LOW);
+	}
+	// 設定要點亮的 LED 位置
+	// 如果點亮的腳位編號小於結束腳位,則腳位編號+1
+	// 否則從頭開始
+	 // 點亮 LED左移 
+for (i=startPin; i<= endPin; i++)
+ {
+ 	digitalWrite(lightPin-1, LOW);
+	digitalWrite(lightPin, HIGH);
+	delay (1000);
+	if (lightPin < endPin) 
+	{
+		lightPin ++;
+		digitalWrite(lightPin, HIGH);
+	} 
+	else 
+	{
+		lightPin = endPin;
+	}
+}
+// 點亮 LED右移 
+for (i=endPin; i>=startPin ; i--)
+ {
+ 	digitalWrite(lightPin, LOW);
+	digitalWrite(lightPin-1, HIGH);
+	delay (1000);
+	if (lightPin > startPin) 
+	{
+		lightPin --; 
+		digitalWrite(lightPin, HIGH);
+	} 
+	else 
+	{
+		lightPin = startPin;
+	}
+	
+}
+}
