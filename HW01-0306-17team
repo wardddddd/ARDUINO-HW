@@ -13,12 +13,22 @@ void setup()
 }
 void loop()
 {
-	byte i;
+	byte i,j;
 	byte lightPin = startPin;
 	// 所有 LED OFF
-	for (i=startPin; i<= endPin; i++) {
+for(j=0;j<=1;j++)
+{
+	for (i=startPin; i<= endPin; i++) 
+	{
+		digitalWrite(i,HIGH);
+	}
+	delay (500);
+	for (i=startPin; i<= endPin; i++) 
+	{
 		digitalWrite(i,LOW);
 	}
+	delay (500);
+}	
 	// 設定要點亮的 LED 位置
 	// 如果點亮的腳位編號小於結束腳位,則腳位編號+1
 	// 否則從頭開始
@@ -27,7 +37,7 @@ for (i=startPin; i<= endPin; i++)
  {
  	digitalWrite(lightPin-1, LOW);
 	digitalWrite(lightPin, HIGH);
-	delay (1000);
+	delay (500);
 	if (lightPin < endPin) 
 	{
 		lightPin ++;
@@ -38,12 +48,28 @@ for (i=startPin; i<= endPin; i++)
 		lightPin = endPin;
 	}
 }
+for(j=0;j<=1;j++)
+{
+	for (i=startPin; i<= endPin; i++) 
+	{
+		digitalWrite(i,HIGH);
+	}
+	delay (500);
+	for (i=startPin; i<= endPin; i++) 
+	{
+		digitalWrite(i,LOW);
+	}
+	delay (500);
+}	
 // 點亮 LED右移 
+	digitalWrite(lightPin, HIGH);
+    delay (500);
 for (i=endPin; i>=startPin ; i--)
  {
+ 	
  	digitalWrite(lightPin, LOW);
 	digitalWrite(lightPin-1, HIGH);
-	delay (1000);
+	delay (500);
 	if (lightPin > startPin) 
 	{
 		lightPin --; 
